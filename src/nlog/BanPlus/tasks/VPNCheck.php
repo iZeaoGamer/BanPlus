@@ -42,9 +42,9 @@ class VPNCheck extends AsyncTask {
         $server = Server::getInstance();
         $player = $server->getPlayerExact($this->name);
         if ($this->useVPN) {
-            $server->getNameBans()->addBan($this->name, "VPN 사용으로 계정이 차단되었습니다.\n해외 거주 시 밴드 게시글로 문의해주시기 바랍니다.");
+            //$server->getNameBans()->addBan($this->name, "VPN Your account has been blocked for use. \ NIf you live abroad, please contact your band post..");
             if ($player instanceof Player) {
-                $player->kick("VPN 사용으로 계정이 차단되었습니다.", false, " ");
+                $player->close("", TextFormat::colorize("You have been kicked for using a VPN. Please turn off your VPN, and try again."));
             }
         }
     }
