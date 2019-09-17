@@ -29,10 +29,10 @@ class BanPlus extends PluginBase implements Listener {
      * @var array
      */
     private static $banMessage = [
-            "Disconnected from server",
-            "timeout",
+            "You have been permanately banned.",
+            "Test",
             "Login timeout",
-            "서버와의 연결이 끊겼습니다."
+            "The server has been disconnected."
     ];
 
 
@@ -91,7 +91,7 @@ class BanPlus extends PluginBase implements Listener {
         if ($this->isSubAccount($ev->getPlayer(), $pk, $name)) {
             $this->setAccountInformation($ev->getPlayer(), $pk, $this->getSubAccountName($ev->getPlayer(), $pk));
             $ev->setCancelled(true);
-            $ev->setKickMessage('§c서버에서 부계정을 사용할 수 없습니다.\n§b본계정 §a: ' . $name);
+            $ev->setKickMessage('§cSubaccount not available on server. \ N§b §a: ' . $name);
         } else {
             $this->setAccountInformation($ev->getPlayer(), $pk, $this->getSubAccountName($ev->getPlayer(), $pk));
 
